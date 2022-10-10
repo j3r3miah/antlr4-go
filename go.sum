@@ -1,0 +1,4 @@
+github.com/antlr/antlr4/runtime/Go/antlr/v4 v4.0.0-20220911224424-aa1f1f12a846 h1:et5J11AOyUn9qwkIAF9kcxTxjTO8Z9oSmlOqH7MVSPo=
+github.com/antlr/antlr4/runtime/Go/antlr/v4 v4.0.0-20220911224424-aa1f1f12a846/go.mod h1:pSwJ0fSY5KhvocuWSx4fz3BA8OrA1bQn+K1Eli3BRwM=
+golang.org/x/exp v0.0.0-20221010202428-3a778c567f61 h1:9echpU8vWVULSj2oFTtlY8mpPya+ED1L5xlaCaEEc+M=
+golang.org/x/exp v0.0.0-20221010202428-3a778c567f61/go.mod h1:cyybsKvd6eL0RnXn6p/Grxp8F5bW7iYuBgsNCOHpMYE=
