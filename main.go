@@ -45,6 +45,7 @@ type Context struct {
 	Enums     []string
 }
 
+/*
 func LoadContext(p *parser.ThriftParser) Context {
 	ret := Context{}
 	doc := p.Document()
@@ -58,6 +59,25 @@ func LoadContext(p *parser.ThriftParser) Context {
 			ret.Enums = append(ret.Enums, o.Identifier().GetText())
 		} else if o := def.Struct_rule(); o != nil {
 			ret.Structs = append(ret.Structs, o.Identifier().GetText())
+		}
+	}
+	return ret
+}
+*/
+
+func LoadContext(p *parser.ThriftParser) Context {
+	ret := Context{}
+	doc := p.Document().(*parser.DocumentContext)
+    for _, header := range doc.AllHeader() {
+        if ns := header.(*parser.HeaderContext).Namespace(); ns != nil {
+			ret.Namespace = ns.(*parser.NamespaceContext).Namespace_value().GetText()
+        }
+    }
+	for _, def := range doc.AllDefinition() {
+		if o := def.(*parser.DefinitionContext).Enum_rule(); o != nil {
+			ret.Enums = append(ret.Enums, o.(*parser.Enum_ruleContext).Identifier().GetText())
+		} else if o := def.(*parser.DefinitionContext).Struct_rule(); o != nil {
+			ret.Structs = append(ret.Structs, o.(*parser.Struct_ruleContext).Identifier().GetText())
 		}
 	}
 	return ret
